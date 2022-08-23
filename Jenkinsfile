@@ -6,7 +6,7 @@ stages{
 
     stage('Scan'){
         steps{
-            withSonarQubeEnv(installationName: 'sql'){
+            withSonarQubeEnv(installationName: 'sq1'){
                 sh './mvn clean  sonar:sonar'
             }
         }
