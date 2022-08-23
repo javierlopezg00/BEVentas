@@ -1,24 +1,32 @@
 pipeline{
 
-  agent any
+agent any
 
-  stages{
+stages{
 
-    stage("build"){
-            steps{
-                echo "Building"
-                
+    stage('Scan'){
+        steps{
+            withSonarQubeEnv(installationName: 'sql'){
+                sh './mvn clean  sonar:sonar'
             }
-    } 
-    stage("test"){
-            steps{
-                echo "testing"
-            }
-    }  
-    stage("deploy"){
-            steps{
-                echo "deploying"
-      }
-    }  
-  }
+        }
+    }
+
+  stage("build"){
+          steps{
+              echo "Building"
+              
+          }
+  } 
+  stage("test"){
+          steps{
+              echo "testing"
+          }
+  }  
+  stage("deploy"){
+          steps{
+              echo "deploying"
+    }
+  }  
+}
 }
