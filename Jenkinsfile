@@ -1,6 +1,6 @@
 pipeline{
 
-    agent { label 'linux' }
+    agent any
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
@@ -9,7 +9,7 @@ pipeline{
         stage('Scan'){
             steps{
                 withSonarQubeEnv(installationName: 'sql'){
-                    sh './mvn clean  sonar:sonar'
+                    sh './mvnw clean  sonar:sonar'
                 }
             }
         }
