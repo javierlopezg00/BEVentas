@@ -15,7 +15,7 @@ pipeline{
   }
         post {
     success {
-      mail to: javierlopezguzman00@gmail.com, subject: ‘The Pipeline success :(‘
+      mail to: ‘javierlopezguzman00@gmail.com‘, subject: ‘The Pipeline success :(‘, body: ‘Problems with the sonarqube and unit test‘
     }
   }
 }
