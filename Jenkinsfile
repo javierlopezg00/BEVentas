@@ -13,9 +13,10 @@ pipeline{
                 }
             }
         }
+    }
       post {
             failure {
-                mail to: javierlopezguzman00@gmail.com, subject: ‘The Pipeline failed :(‘ , body: ‘Problems wit sonarqube and unit test‘
+                mail to: 'javierlopezguzman00@gmail.com', subject: 'The Pipeline failed :(' , body: 'Problems wit sonarqube and unit test'
         }
-    }
+    }   
 }
