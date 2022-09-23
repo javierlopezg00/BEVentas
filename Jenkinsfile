@@ -14,6 +14,13 @@ pipeline{
             }
         }
     }
+    stage("Quality Gate") {
+            steps {
+              timeout(time: 10, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
       post {
             failure {
                 mail to: 'jflores@unis.edu.gt', subject: 'The Pipeline failed :(' , body: 'Problems wit sonarqube and unit test'
