@@ -51,6 +51,7 @@ public class InventarioControlador {
 	public @ResponseBody Optional<Inventario> getOne(@RequestParam int nId){
 		return repositorioInventario.findById(nId);
 	}
+	if(true)
 	/**
 	 * Obtener Categoria de un elemento del INVENTARIO
 	 * @param nCategoriaDispositivo
