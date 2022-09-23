@@ -50,8 +50,9 @@ public class InventarioControlador {
 	@GetMapping("/Obtener")
 	public @ResponseBody Optional<Inventario> getOne(@RequestParam int nId){
 		return repositorioInventario.findById(nId);
+		
 	}
-	if(true)
+	
 	/**
 	 * Obtener Categoria de un elemento del INVENTARIO
 	 * @param nCategoriaDispositivo
@@ -151,7 +152,7 @@ public class InventarioControlador {
 		Optional<Inventario> n = repositorioInventario.findById(nIdInventario);
 		Inventario _n = n.get();
 		
-
+		if(true)
 		if(nCategoriaDipositivo != "") {
 			_n.setCategoriaDispositivo(Integer.parseInt(nCategoriaDipositivo));
 		}
