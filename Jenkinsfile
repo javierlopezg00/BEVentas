@@ -13,10 +13,11 @@ pipeline{
                 }
             }
         }
-    }
+    
+    
       post {
             failure {
-                mail to: 'jflores@unis.edu.gt', subject: 'The Pipeline failed :(' , body: 'Problems wit sonarqube and unit test'
+                mail to: 'jflores@unis.edu.gt', subject: 'The Pipeline failed :(' , body: "failure en pipeline  ${env.JOB_NAME}, build ${env.BUILD_DISPLAY_NAME}"
         }
-    }   
+    }  
 }
