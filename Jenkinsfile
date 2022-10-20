@@ -1,23 +1,20 @@
-pipeline{
-
+pipeline {
     agent any
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
-    }
-    stages{
-
-        stage('Scan'){
-            steps{
-                withSonarQubeEnv(installationName: 'SonarQube'){
-                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.projectKey=javaService -Dsonar.login=sqp_e352961a19b65f147bc619fd244acd0b8926c488'
+    stages {
+        stage('Build') {
+            steps {
+                withSonarQubeEnv(installationName: 'SonarQube') {
+                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=javaService -Dsonar.login=sqp_beef938e6cabd802841d673ffb1266bb5dc32a52'
                 }
             }
         }
     }
-    
-      post {
-            failure {
-                mail to: 'jflores@unis.edu.gt', subject: 'The Pipeline failed :(' , body: "failure en pipeline  ${env.JOB_NAME}, build ${env.BUILD_DISPLAY_NAME}"
+    post {
+        success {
+            mail to: 'javierlopezguzman00@gmail.com, jflores@unis.edu.gt', subject:"Build exitosa en el pipeline ${env.JOB_NAME} ${env.GIT_LOCAL_BRANCH}", body: "Pipeline ${env.JOB_NAME}, Build Numero ${env.BUILD_NUMBER}, Log: ${env.BUILD_URL}    "
         }
-    }  
+        failure {
+            mail to: 'javierlopezguzman00@gmail.com, jflores@unis.edu.gt', subject:"Ocurrio un fallo en el pipeline ${env.JOB_NAME}", body: "Pipeline ${env.JOB_NAME}, Build ${env.BUILD_NUMBER}, Log:L ${env.BUILD_URL}"
+        }
+    }
 }
