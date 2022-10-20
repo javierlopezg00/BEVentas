@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 withSonarQubeEnv(installationName: 'SonarQube') {
-                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=javaService -Dsonar.login=sqp_e352961a19b65f147bc619fd244acd0b8926c488'
+                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=javaService -Dsonar.login=sqp_beef938e6cabd802841d673ffb1266bb5dc32a52'
                 }
             }
         }
