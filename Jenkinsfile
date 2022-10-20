@@ -9,7 +9,7 @@ pipeline{
         stage('Scan'){
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube'){
-                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.projectKey=javaService -Dsonar.login=squ_6d18fcabc092776cc791d7e7ef06ef4101657be3'
+                    sh 'chmod +x mvnw && ./mvnw clean verify sonar:sonar -Dsonar.projectKey=javaService -Dsonar.login=sqp_e352961a19b65f147bc619fd244acd0b8926c488'
                 }
             }
         }
