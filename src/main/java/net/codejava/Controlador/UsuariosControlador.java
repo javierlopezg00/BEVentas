@@ -86,7 +86,7 @@ public class UsuariosControlador {
 		if(n.isEmpty()) {
 			response.put("respuesta", "error");
 		}else {
-			response.put("respuesta", "ok");
+			response.put("respuesta", "ok_pruebas");
 		}
 		
 		
