@@ -99,7 +99,7 @@ public class UsuariosControlador {
 		HashMap<String,String> response = new HashMap<>();
 		
 		
-		response.put("respuesta", "Dev");
+		response.put("respuesta", "Master");
 
 		
 		
