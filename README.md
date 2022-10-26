@@ -1,2 +1,1 @@
-
-Pruebas Sonarqube2
+Prueba de imagen
