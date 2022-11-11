@@ -2,8 +2,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: 
-    - '*'
+    branches: [ "uat" ]
 jobs:
   build:
 
