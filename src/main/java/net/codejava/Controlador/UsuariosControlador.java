@@ -92,4 +92,16 @@ public class UsuariosControlador {
 		
 		return response;
 	}
+	@GetMapping("/Branch")
+	public @ResponseBody Map<String,String> getBranch() {
+	
+		HashMap<String,String> response = new HashMap<>();
+		
+		
+		response.put("respuesta", "10/27/2022HOY");
+
+		
+		
+		return response;
+	}
 }
